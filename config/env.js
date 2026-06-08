@@ -20,6 +20,8 @@ export const {
 
 // Validate required variables
 const required = [
+  PORT,
+  SERVER_URL,
   "MONGODB_URI",
   "JWT_SECRET",
   "ARCJET_KEY",

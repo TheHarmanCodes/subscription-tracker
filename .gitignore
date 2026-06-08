@@ -1,6 +1,6 @@
 # logs
-logs
-**.logs
+*.log
+**/*.log
 npm-debug.log*
 
 # Runtime data
@@ -33,6 +33,7 @@ jspm_packages/
 .eslintcache
 .intermediate
 .next
+.idea
 
 # dotenv environment variables file
 .env

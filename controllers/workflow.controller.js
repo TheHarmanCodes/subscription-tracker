@@ -39,12 +39,12 @@ export const sendReminder = serve(async (context) => {
         );
         return;
       }
-      await triggerReminder(context, reminderLabel, subscription);
+      await triggerReminder(context, reminderLabel, currentSubscription);
     } else if (dayjs().isSame(reminderDate, "day")) {
       await triggerReminder(context, reminderLabel, subscription);
     }
     // This keeps the workflow deterministic:
-    // future reminders sleep, same day reminders send immediately, and past reminders are skipped.
+    // future reminders sleep, same-day reminders send immediately, and past reminders are skipped.
   }
 });
 

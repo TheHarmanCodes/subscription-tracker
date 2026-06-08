@@ -1,7 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 
-import { PORT } from "./config/env.js";
+import {PORT} from "./config/env.js";
 
 import userRouter from "./routes/user.routes.js";
 import authRouter from "./routes/auth.routes.js";
@@ -16,14 +16,14 @@ const app = express();
 // express.json() allow us to handle json data in API requests
 app.use(express.json());
 // this helps us to process the form data in a simple format
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(arcjetMiddleware);
 
 app.get("/", (req, res) => {
-  res.send(
-    "You contacted root path\n Welcome to the subscription tracker API!",
-  );
+    res.send(
+        "You contacted root path\n Welcome to the subscription tracker API!",
+    );
 });
 
 app.use("/api/v1/auth", authRouter);
@@ -34,12 +34,13 @@ app.use("/api/v1/workflows", workflowRouter);
 // global error handling middleware
 app.use(errorMiddleware);
 
-app.listen(PORT, async () => {
-  await connectToDatabase();
-
-  console.log(
-    `Subscription tracker API is running on http://localhost:${PORT}`,
-  );
-});
+(async () => {
+    await connectToDatabase();
+    app.listen(PORT, () => {
+        console.log(
+            `Subscription tracker API is running on http://localhost:${PORT}`,
+        );
+    });
+})();
 
 export default app;

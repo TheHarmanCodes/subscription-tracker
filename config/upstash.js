@@ -17,6 +17,7 @@ export const triggerSubscriptionWorkflow = async (subscriptionId) => {
       "content-type": "application/json",
     },
     retries: 0,
+    // Alternative: retries: 2,
   });
 };
 

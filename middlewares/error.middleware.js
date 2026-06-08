@@ -1,8 +1,7 @@
 const errorMiddleware = (err, req, res, next) => {
   try {
-    let error = { ...err }; // creating a new object and destructing error object
+    let error = err;
 
-    error.message = err.message;
     console.error(err);
 
     // Now figure out the type of the error occurred
