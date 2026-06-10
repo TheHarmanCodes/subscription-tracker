@@ -20,8 +20,8 @@ export const {
 
 // Validate required variables
 const required = [
-  PORT,
-  SERVER_URL,
+  "PORT",
+  "SERVER_URL",
   "MONGODB_URI",
   "JWT_SECRET",
   "ARCJET_KEY",
@@ -29,6 +29,7 @@ const required = [
   "QSTASH_TOKEN",
   "MAIL_USER",
   "GMAIL_PASS",
+  "ADMIN_BOOTSTRAP_SECRET",
 ];
 
 const missing = required.filter((key) => !process.env[key]);
